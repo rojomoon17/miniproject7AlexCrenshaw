@@ -155,6 +155,10 @@ the INF601 AI Use Policy.
 - Wrote `requirements.txt` and `.gitignore`, and tested the error paths
   (no token, bad token / 401, network failure).
 - Wrote the first draft of this README.
+- After I registered the server with `claude mcp add`, ran the acceptance
+  test (read → create → modify, plus a 404 check) in a headless Claude Code
+  session. It turned the recorded session into
+  `docs/acceptance-test.md` and also checked the 403 and 422 cases.
 
 **What I did / changed**
 
