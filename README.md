@@ -152,34 +152,46 @@ To remove it later: `claude mcp remove practice-hub`.
 | [05-create-post-tool.png](docs/screenshots/05-create-post-tool.png) | `create_post` docstring and parameters |
 | [06-update-post-tool.png](docs/screenshots/06-update-post-tool.png) | `update_post` docstring and parameters |
 | [07-delete-post-tool.png](docs/screenshots/07-delete-post-tool.png) | `delete_post` docstring and parameters |
+| [08-read-list-my-posts.png](docs/screenshots/08-read-list-my-posts.png) | **Read step:** I asked Claude to list my posts. It called `practice-hub` and showed posts #62 and #8 |
 
 ![practice-hub connected in /mcp](docs/screenshots/01-mcp-servers-connected.png)
 
 ## AI Usage
 
-This project was built with help from Claude Code (Claude Opus 5.5), following
-the INF601 AI Use Policy.
+I built this project with Claude Code (Claude Opus 5.5), following the INF601
+AI Use Policy.
 
-**What Claude Code did**
+### Claude Code (AI)
 
-- Read my Mini Project 1 client and the Practice Hub `/openapi.json` to find
-  the endpoints and request fields.
-- Set up the project folder and virtual environment. It also worked around
-  Avast's HTTPS scanning, which was breaking `pip` downloads, by downloading
-  the package wheels with `curl`.
-- Wrote the first draft of `server.py`: the five FastMCP tools and their
-  docstrings, the `_request()` and `_error_message()` error-handling helpers
-  (based on the `_check()` method from my Mini Project 1), and the
-  `truststore` fix for HTTPS verification.
-- Wrote `requirements.txt` and `.gitignore`, and tested the error paths
-  (no token, bad token / 401, network failure).
-- Wrote the first draft of this README.
-- After I registered the server with `claude mcp add`, ran the acceptance
-  test (read → create → modify, plus a 404 check) in a headless Claude Code
-  session. It turned the recorded session into
-  `docs/acceptance-test.md` and also checked the 403 and 422 cases.
+- Read my Mini Project 1 client and the Practice Hub API schema to find the
+  endpoints and fields.
+- Created the project folder, virtual environment, and git repository.
+- Worked around Avast's HTTPS scanning, which was breaking `pip`, by
+  downloading the packages with `curl`.
+- Wrote all of `server.py`: the five FastMCP tools, their docstrings, and the
+  error handling. The error handling is based on the `_check()` method from
+  my Mini Project 1. Claude also added `truststore` so HTTPS works behind Avast.
+- Wrote `requirements.txt`, `.gitignore`, and this README, including the
+  Evidence section and this AI Usage section.
+- Tested the error handling (missing token, 401, 403, 404, 422, network
+  failure).
+- Ran the `claude mcp add` registration with my token. My first attempt
+  failed because I left out `PRACTICE_API_TOKEN=`, and Claude corrected it.
+- Ran the acceptance test in a headless Claude Code session (list my posts,
+  create post #62, edit it, read it back, 404 check) and wrote
+  `docs/acceptance-test.md` from that session.
+- Made all of the commits, pushed to GitHub, and copied my screenshots from
+  my Google Doc into `docs/screenshots/`.
 
-**What I did / changed**
+### Me (Alex Crenshaw)
 
-- _TODO (Alex): describe what you reviewed, changed, or wrote yourself, e.g.
-  comments you added, edits to the README, and running the acceptance test._
+- Gave Claude the assignment rubric and directed the work.
+- Created the GitHub repository.
+- Supplied my Practice Hub API token and attempted the `claude mcp add`
+  command.
+- Asked Claude for review suggestions. Following one of them, I ran Claude
+  Code interactively and took the screenshots in `docs/screenshots/`,
+  showing the server connected and its tools.
+- Ran the read step of the acceptance test myself ("list my posts using the
+  practice hub server") and uploaded the screenshot
+  (`08-read-list-my-posts.png`) to GitHub.
