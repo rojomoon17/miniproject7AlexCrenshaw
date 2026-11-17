@@ -134,7 +134,26 @@ To remove it later: `claude mcp remove practice-hub`.
 4. Optional error check: ask Claude to edit a post that belongs to someone
    else. The tool returns the 403 message and the server keeps running.
 
-The transcript of my run is in [`docs/acceptance-test.md`](docs/acceptance-test.md).
+### Evidence
+
+- **Transcript:** [`docs/acceptance-test.md`](docs/acceptance-test.md) records
+  a headless Claude Code run that used only this server's tools. It lists my
+  posts, creates post #62, edits it, reads it back, and shows the 404 message.
+  It also shows the 403 and 422 checks.
+- **Screenshots** from my own interactive Claude Code session, in
+  [`docs/screenshots/`](docs/screenshots/):
+
+| Screenshot | What it shows |
+| --- | --- |
+| [01-mcp-servers-connected.png](docs/screenshots/01-mcp-servers-connected.png) | `/mcp`: `practice-hub` is connected with 5 tools |
+| [02-practice-hub-server-details.png](docs/screenshots/02-practice-hub-server-details.png) | Server status, the command Claude Code runs, and the config location |
+| [03-practice-hub-tools.png](docs/screenshots/03-practice-hub-tools.png) | The five tools: `list_posts`, `get_post`, `create_post`, `update_post`, `delete_post` |
+| [04-list-posts-tool.png](docs/screenshots/04-list-posts-tool.png) | `list_posts` docstring and parameters as Claude sees them |
+| [05-create-post-tool.png](docs/screenshots/05-create-post-tool.png) | `create_post` docstring and parameters |
+| [06-update-post-tool.png](docs/screenshots/06-update-post-tool.png) | `update_post` docstring and parameters |
+| [07-delete-post-tool.png](docs/screenshots/07-delete-post-tool.png) | `delete_post` docstring and parameters |
+
+![practice-hub connected in /mcp](docs/screenshots/01-mcp-servers-connected.png)
 
 ## AI Usage
 
